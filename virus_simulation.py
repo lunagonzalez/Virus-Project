@@ -582,12 +582,15 @@ size_now_list=[200]
 size_next_list=[0]
 mut_list=[[1 for i in range(13000)]]
 
+#initializing the tree with the the P0 population information
 tree = kdtree(mut_list, s_list, size_now_list, size_next_list)
 traverse_binary_tree(tree,add_parents) #right now this does nothing because there's only one node, but it will become necessary when using an actual P0 approximation for the starting population.
 
+#variables to change
 passages=1
+generations=8
+
 for j in range(passages):
-    generations=8
     for i in range(generations):
         traverse_binary_tree(tree,whole_step_2)
         tree=step_3_and_4()
